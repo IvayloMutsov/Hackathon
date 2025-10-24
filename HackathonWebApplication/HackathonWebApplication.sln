@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonWebApplication", "HackathonWebApplication\HackathonWebApplication.csproj", "{5F177EDE-ED68-4C76-8329-81BEA69C3331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationDbContext", "ApplicationDbContext\ApplicationDbContext.csproj", "{2DDF2423-449E-4764-B0D3-DEA7D4F5BCDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F177EDE-ED68-4C76-8329-81BEA69C3331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F177EDE-ED68-4C76-8329-81BEA69C3331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F177EDE-ED68-4C76-8329-81BEA69C3331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F177EDE-ED68-4C76-8329-81BEA69C3331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDF2423-449E-4764-B0D3-DEA7D4F5BCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDF2423-449E-4764-B0D3-DEA7D4F5BCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDF2423-449E-4764-B0D3-DEA7D4F5BCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDF2423-449E-4764-B0D3-DEA7D4F5BCDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F25C9B72-B8EB-469F-888F-0B914FA48EB3}
+	EndGlobalSection
+EndGlobal
