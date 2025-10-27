@@ -1,0 +1,61 @@
+﻿@using Infrastructure.ViewModels
+@model IEnumerable<ProcedureViewModel>
+@{
+    ViewData["Title"] = "Създадено";
+}
+
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<div class="text-center">
+
+    <a asp-controller="Home" asp-action="Index" class="btn-create btn mt-5">Върни към главната страница</a>
+    <div>
+        @if (Model != null && Model.Any())
+        {
+            <div class="table-responsive mt-5">
+                <table class="table table-bordered table-hover styled-table align-middle text-center">
+                    <thead class="table-header text-white">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Procedure Type</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Professors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Procedure.Id</td>
+                                <td>@item.Procedure.ProcedureType</td>
+                                <td>@item.Procedure.Date?.ToString("dd-MM-yyyy")</td>
+                                <td>
+                                    @if (item.Professors != null && item.Professors.Any())
+                                    {
+                                        @for (int i = 0; i < item.Professors.Count; i++)
+                                        {
+                                            if (i == item.Professors.Count - 1 || i == item.Professors.Count - 2)
+                                            {
+                                                <div>@item.Professors[i].AcademicRank @(item.Professors[i].FullName) ("Резерва")</div>
+                                            }
+                                            else
+                                            {
+                                                <div>@item.Professors[i].AcademicRank @item.Professors[i].FullName</div>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>N/A</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

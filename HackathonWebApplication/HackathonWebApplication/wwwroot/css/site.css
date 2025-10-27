@@ -21,11 +21,56 @@ body {
   margin-bottom: 60px;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.navbar {
+    background-color: #431264 !important;
+}
+.nav-image{
+    width: 100px;
+}
+.footer{
+    background-color: #431264;
+    text-align: center;
+}
+.btn-create {
+    background-color: #431264;
+    color: white;
+    font-size: 25px;
+}
+.btn-create:hover {
+    background-color: #258cfb;
+    color: white;
+}
+/* Таблица с основен цвят #431264 */
+.styled-table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(67, 18, 100, 0.3);
+    background-color: #fff;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.table-header {
+    background-color: #431264 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.styled-table th,
+.styled-table td {
+    vertical-align: middle !important;
+    padding: 12px 10px;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f8f5fb;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e8d9f5;
+    transition: background-color 0.3s ease;
+}
+
+.styled-table td:first-child {
+    font-weight: bold;
+    color: #431264;
 }
