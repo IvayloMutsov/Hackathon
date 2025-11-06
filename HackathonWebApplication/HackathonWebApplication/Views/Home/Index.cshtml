@@ -10,7 +10,30 @@
 </head>
 
 <div class="text-center">
-    <a asp-controller="Home" asp-action="CreateProcedure" class="btn-create btn mt-5">Създаване</a>
+    <h2 class="mt-4">Създай нова процедура</h2>
+
+    <!-- FORM to send parameters to CreateProcedure -->
+    <form asp-controller="Home" asp-action="CreateProcedure" method="post" class="mt-3">
+
+        <div class="form-group mb-3">
+            <label for="ProcedureType">Тип процедура:</label>
+            <input type="text" id="ProcedureType" name="ProcedureType" class="form-control text-center" placeholder="Въведете тип процедура" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="Field">Научна област::</label>
+            <input type="text" id="Field" name="Field" class="form-control text-center" placeholder="Въведете поле" required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="Date">Дата:</label>
+            <input type="date" id="Date" name="Date" class="form-control text-center"
+                   value="@Model?.FirstOrDefault()?.Procedure.Date?.ToString("yyyy-MM-dd")" required />
+            <small class="text-muted">Формат: ден/месец/година</small>
+        </div>
+
+        <button type="submit" class="btn btn-success">Създай процедура</button>
+    </form>
 
     <div>
         @if (Model != null && Model.Any())

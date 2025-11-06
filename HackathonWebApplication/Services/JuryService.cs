@@ -16,84 +16,100 @@ namespace Services
 
         public List<Proffessors> GetJury(string scienceField, Procedures procedure)
         {
-            var all = context.Proffessors.Where(a => a.ConsecutiveCounter < 2 &&
-                                                a.ScientificFiled == scienceField &&
-                                                (a.LastParticipationDate == procedure.Date)).ToList();
-            var local = context.Proffessors.Where(l => l.UniIsLocal == true).ToList();
-            var external = context.Proffessors
-                .Where(l => l.UniIsLocal == false)
-                .OrderByDescending(l => l.Distance)
+            // 1️⃣ Извличаме всички хабилитирани в съответната област
+            var professors = context.Proffessors
+                .Where(p => p.ScientificFiled == scienceField &&
+                            p.ConsecutiveCounter < 2)
                 .ToList();
 
-            int totalMembers = procedure.ProcedureType switch
+            var local = professors.Where(p => p.UniIsLocal).ToList();
+            var external = professors.Where(p => !p.UniIsLocal)
+                                     .OrderBy(p => p.Distance)
+                                     .ToList();
+
+            // 2️⃣ Настройки според типа процедура
+            int totalMembers, minProf, minExt;
+
+            switch (procedure.ProcedureType)
             {
-                "доктор" => 5,
-                "доцент" => 7,
-                "доктор на науките" or "ДН" => 7,
-                "професор" => 7,
-                _ => 7
-            };
-
-            int minProf = procedure.ProcedureType switch
-            {
-                "доктор" => 1,
-                "доцент" => 3,
-                "доктор на науките" or "ДН" => 3,
-                "професор" => 4,
-                _ => 3
-            };
-
-            int minExt = procedure.ProcedureType switch
-            {
-                "доктор" => 3,
-                "доцент" => 3,
-                "доктор на науките" or "ДН" => 4,
-                "професор" => 3,
-                _ => 3
-            };
-
-            var selected = new List<Proffessors>();
-
-            selected.AddRange(external.Take(minProf));
-
-            int profs = selected.Count(p => p.AcademicRank == "професор");
-
-            if (profs < minProf)
-            {
-                var missing = minProf - profs;
-                var more = all
-                    .Where(p => p.AcademicRank == "професор" && !selected.Contains(p))
-                    .Take(missing);
-                selected.AddRange(more);
+                case "доктор":
+                    totalMembers = 5;
+                    minProf = 1;
+                    minExt = 3;
+                    break;
+                case "доктор на науките":
+                case "ДН":
+                    totalMembers = 7;
+                    minProf = 3;
+                    minExt = 4;
+                    break;
+                case "доцент":
+                    totalMembers = 7;
+                    minProf = 3;
+                    minExt = 3;
+                    break;
+                case "професор":
+                    totalMembers = 7;
+                    minProf = 4;
+                    minExt = 3;
+                    break;
+                default:
+                    totalMembers = 7;
+                    minProf = 3;
+                    minExt = 3;
+                    break;
             }
 
-            foreach (var p in all)
+            // 3️⃣ Избираме минималния брой външни членове (най-близките)
+            var selected = new List<Proffessors>();
+            selected.AddRange(external.Take(minExt));
+
+            // 4️⃣ Проверяваме дали има достатъчно професори
+            int currentProfessors = selected.Count(p => p.AcademicRank == "професор");
+
+            if (currentProfessors < minProf)
+            {
+                int missing = minProf - currentProfessors;
+                var extraProfs = professors
+                    .Where(p => p.AcademicRank == "професор" &&
+                                !selected.Any(s => s.ID == p.ID))
+                    .Take(missing);
+                selected.AddRange(extraProfs);
+            }
+
+            // 5️⃣ Попълваме останалите места до общия брой
+            foreach (var p in professors)
             {
                 if (selected.Count >= totalMembers)
                     break;
-                if (!selected.Contains(p))
+
+                if (!selected.Any(s => s.ID == p.ID))
                     selected.Add(p);
             }
 
-            var reserved = new List<Proffessors>();
-            var extReserve = external.FirstOrDefault(p => !selected.Contains(p));
-            var intReserve = local.FirstOrDefault(p => !selected.Contains(p));
+            // 6️⃣ Добавяме двама резервни – един вътрешен и един външен
+            var internalReserve = local.FirstOrDefault(p => !selected.Any(s => s.ID == p.ID));
+            var externalReserve = external.FirstOrDefault(p => !selected.Any(s => s.ID == p.ID));
 
-            if (intReserve != null)
+            if (internalReserve != null)
+                selected.Add(internalReserve);
+
+            if (externalReserve != null)
+                selected.Add(externalReserve);
+
+            // 7️⃣ Обновяваме ConsecutiveCounter:
+            // участниците +1, останалите = 0
+            foreach (var p in professors)
             {
-                reserved.Add(intReserve);
+                if (selected.Any(s => s.ID == p.ID))
+                    p.ConsecutiveCounter++;
+                else
+                    p.ConsecutiveCounter = 0;
             }
 
-            if (extReserve != null)
-            {
-                reserved.Add(extReserve);
-            }
+            context.SaveChanges();
 
-            foreach(var item in reserved)
-            {
-                selected.Add(item);
-            }
-
+            // Връщаме целия списък (основни + 2 резервни)
             return selected;
         }
     }

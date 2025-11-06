@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|solutionrelative:hackathonwebapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E2542187-1B54-4857-974D-C9A6BF237E84}|Services\\Services.csproj|c:\\users\\igmut\\source\\repos\\hackathon\\hackathonwebapplication\\services\\juryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2542187-1B54-4857-974D-C9A6BF237E84}|Services\\Services.csproj|solutionrelative:services\\juryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|c:\\users\\igmut\\source\\repos\\hackathon\\hackathonwebapplication\\hackathonwebapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|solutionrelative:hackathonwebapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|c:\\users\\igmut\\source\\repos\\hackathon\\hackathonwebapplication\\hackathonwebapplication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|solutionrelative:hackathonwebapplication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|c:\\users\\igmut\\source\\repos\\hackathon\\hackathonwebapplication\\hackathonwebapplication\\views\\home\\createprocedure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|solutionrelative:hackathonwebapplication\\views\\home\\createprocedure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|c:\\users\\igmut\\source\\repos\\hackathon\\hackathonwebapplication\\hackathonwebapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F177EDE-ED68-4C76-8329-81BEA69C3331}|HackathonWebApplication\\HackathonWebApplication.csproj|solutionrelative:hackathonwebapplication\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,46 +30,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "JuryService.cs",
+              "DocumentMoniker": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\Services\\JuryService.cs",
+              "RelativeDocumentMoniker": "Services\\JuryService.cs",
+              "ToolTip": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\Services\\JuryService.cs",
+              "RelativeToolTip": "Services\\JuryService.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAEoAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T21:24:01.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CreateProcedure.cshtml",
               "DocumentMoniker": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Views\\Home\\CreateProcedure.cshtml",
               "RelativeDocumentMoniker": "HackathonWebApplication\\Views\\Home\\CreateProcedure.cshtml",
               "ToolTip": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Views\\Home\\CreateProcedure.cshtml",
               "RelativeToolTip": "HackathonWebApplication\\Views\\Home\\CreateProcedure.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowDcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-24T19:22:00.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-24T19:22:00.002Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "HackathonWebApplication\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "HackathonWebApplication\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowDgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-24T18:31:21.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-24T18:31:21.441Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "HackathonWebApplication\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Controllers\\HomeController.cs",
               "RelativeToolTip": "HackathonWebApplication\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAawFQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAswHMAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T18:19:42.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-24T18:19:42.367Z"
             },
             {
               "$type": "Document",
@@ -75,7 +88,7 @@
               "RelativeDocumentMoniker": "HackathonWebApplication\\Program.cs",
               "ToolTip": "C:\\Users\\igmut\\source\\repos\\Hackathon\\HackathonWebApplication\\HackathonWebApplication\\Program.cs",
               "RelativeToolTip": "HackathonWebApplication\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAUwBUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T07:03:59.149Z",
               "EditorCaption": ""

@@ -59,6 +59,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> CreateProcedure(Procedures dto,string field)
     {
+        if (dto == null)
+        {
+            return BadRequest("Procedure not created due to lack of information");
+        }
+
         var allProffesors = _context.Proffessors.ToList();
         var viewModel = _juryService.GetJury(field,dto);
 
@@ -83,29 +88,31 @@ public class HomeController : Controller
         }
 
         var procedure = new Procedures
-        {
-            Date = dto.Date,
-            ProcedureType = dto.ProcedureType,
+{
+    Date = dto.Date,
+    ProcedureType = dto.ProcedureType,
 
-            ProfessorId1 = (int)(viewModel.ElementAtOrDefault(0)?.ID),
-            ProfessorId2 = (int)(viewModel.ElementAtOrDefault(1)?.ID),
-            ProfessorId3 = (int)(viewModel.ElementAtOrDefault(2)?.ID),
-            ProfessorId4 = (int)(viewModel.ElementAtOrDefault(3)?.ID),
-            ProfessorId5 = (int)(viewModel.ElementAtOrDefault(4)?.ID),
-            ProfessorId6 = (int)viewModel.ElementAtOrDefault(5)?.ID,
-            ProfessorId7 = (int)viewModel.ElementAtOrDefault(6)?.ID,
+    ProfessorId1 = (int?)viewModel.ElementAtOrDefault(0)?.ID ?? 0,
+    ProfessorId2 = (int?)viewModel.ElementAtOrDefault(1)?.ID ?? 0,
+    ProfessorId3 = (int?)viewModel.ElementAtOrDefault(2)?.ID ?? 0,
+    ProfessorId4 = (int?)viewModel.ElementAtOrDefault(3)?.ID ?? 0,
+    ProfessorId5 = (int?)viewModel.ElementAtOrDefault(4)?.ID ?? 0,
+    ProfessorId6 = (int?)viewModel.ElementAtOrDefault(5)?.ID ?? 0,
+    ProfessorId7 = (int?)viewModel.ElementAtOrDefault(6)?.ID ?? 0,
 
-            ReserveInternalId = (int)(viewModel.ElementAtOrDefault(0)?.ID),
-            ReserveExternalId = (int)(viewModel.ElementAtOrDefault(1)?.ID),
-        };
+    ReserveInternalId = (int?)viewModel.ElementAtOrDefault(0)?.ID ?? 0,
+    ReserveExternalId = (int?)viewModel.ElementAtOrDefault(1)?.ID ?? 0,
+};
 
         await _context.Procedures.AddAsync(procedure);
         await _context.SaveChangesAsync();
 
-        return View(new ProcedureViewModel
+        var procViewModel = new ProcedureViewModel
         {
             Procedure = procedure,
             Professors = viewModel
-        });
+        };
+
+        return View(new List<ProcedureViewModel> { procViewModel});
     }
 }
