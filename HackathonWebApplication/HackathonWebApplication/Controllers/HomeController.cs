@@ -24,7 +24,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var procedures = await _context.Procedures.ToListAsync();
-        var professors = await _context.Proffessors.ToListAsync();
+        var professors = await _context.Professors.ToListAsync();
 
         var viewModel = procedures.Select(p => new ProcedureViewModel
         {
@@ -64,7 +64,7 @@ public class HomeController : Controller
             return BadRequest("Procedure not created due to lack of information");
         }
 
-        var allProffesors = _context.Proffessors.ToList();
+        var allProffesors = _context.Professors.ToList();
         var viewModel = _juryService.GetJury(field,dto);
 
         var selectedIds = viewModel.Select(m => m.ID).ToHashSet();

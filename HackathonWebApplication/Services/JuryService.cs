@@ -14,10 +14,10 @@ namespace Services
             this.context = context;
         }
 
-        public List<Proffessors> GetJury(string scienceField, Procedures procedure)
+        public List<Professors> GetJury(string scienceField, Procedures procedure)
         {
             // 1️⃣ Извличаме всички хабилитирани в съответната област
-            var professors = context.Proffessors
+            var professors = context.Professors
                 .Where(p => p.ScientificFiled == scienceField &&
                             p.ConsecutiveCounter < 2)
                 .ToList();
@@ -61,7 +61,7 @@ namespace Services
             }
 
             // 3️⃣ Избираме минималния брой външни членове (най-близките)
-            var selected = new List<Proffessors>();
+            var selected = new List<Professors>();
             selected.AddRange(external.Take(minExt));
 
             // 4️⃣ Проверяваме дали има достатъчно професори

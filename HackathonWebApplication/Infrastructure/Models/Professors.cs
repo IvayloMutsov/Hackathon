@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.Models
 {
-    public class Proffessors
+    public class Professors
     {
         [Required,Key]
         public int ID { get; set; }

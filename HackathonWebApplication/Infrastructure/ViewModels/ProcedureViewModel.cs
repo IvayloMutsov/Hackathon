@@ -6,6 +6,6 @@ namespace Infrastructure.ViewModels
     {
         public Procedures Procedure { get; set; }
 
-        public List<Proffessors> Professors { get; set; }
+        public List<Professors> Professors { get; set; }
     }
 }

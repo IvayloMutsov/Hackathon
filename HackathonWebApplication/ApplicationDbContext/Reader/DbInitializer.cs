@@ -7,7 +7,7 @@ namespace Data.Reader
 {
     public static class DbInitializer
     {
-        public static void SeedProffessors(AppDbContext context)
+        public static void SeedProfessors(AppDbContext context)
         {
             ExcelPackage.License.SetNonCommercialPersonal("ivo");
             string filePath = "C:\\Users\\igmut\\source\\repos\\Hackaton\\Hackaton\\Data\\Database.xlsx";
@@ -21,7 +21,7 @@ namespace Data.Reader
                 // Start from row 2 to skip header
                 for (int row = 2; row <= rowCount; row++)
                 {
-                    Proffessors prof = new Proffessors();
+                    Professors prof = new Professors();
                     var cells = new List<string>();
                     for (int col = 2; col <= colCount; col++)
                     {
@@ -64,7 +64,7 @@ namespace Data.Reader
                                 throw new Exception("Data is in invalid format!");
                         }
                     }
-                    context.Proffessors.Add(prof);
+                    context.Professors.Add(prof);
                 }
                 context.SaveChanges();
             }
